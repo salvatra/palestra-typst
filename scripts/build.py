@@ -11,15 +11,16 @@ def run(*args):
 def compile(source,name):
     run('typst','compile','--root',ROOT,'--font-path',ROOT/'recursos/fonts',source,OUT/f'{name}.pdf')
     print('PDF:',name,flush=True)
-def preview(name,target):
-    run('pdftoppm','-f','1','-singlefile','-scale-to','1200','-png',OUT/f'{name}.pdf',PRE/target)
+def preview(name,target,page=1):
+    run('pdftoppm','-f',str(page),'-singlefile','-scale-to','1200','-png',OUT/f'{name}.pdf',PRE/target)
 for cmd in ('typst','pdftoppm'):
     if not shutil.which(cmd):sys.exit(f'Falta {cmd}. Consulte README.md.')
 run(sys.executable,ROOT/'scripts/gerar-guiao.py')
-for model in ('classico','engenharia','essencial'):
+for model in ('a','b','c'):
     compile(f'templates/{model}/main.typ',f'template-{model}')
     compile(f'templates/{model}/exemplo.typ',f'template-{model}-exemplo')
     preview(f'template-{model}-exemplo',model)
+    preview(f'template-{model}-exemplo',f'{model}-interior',page=3)
     shutil.copy(ROOT/'LICENSE',ROOT/f'templates/{model}/LICENSE')
 for kind in ('cv','poster','ficha'):
     compile(f'exemplos/galeria/{kind}.typ',f'exemplo-{kind}')
@@ -37,7 +38,7 @@ for n in range(1,5):
 for source,name in [('apresentacao/main.typ','apresentacao'),('apresentacao/apoio.typ','slides-apoio'),('apresentacao/reserva.typ','demo-reserva'),('guias/guia-rapido.typ','guia-rapido'),('guias/guiao.typ','guiao-orador')]:
     compile(source,name)
 preview('apresentacao','apresentacao')
-for model in ('classico','engenharia','essencial'):
+for model in ('a','b','c'):
     folder=ROOT/f'templates/{model}'
     with zipfile.ZipFile(DIST/f'template-{model}.zip','w',zipfile.ZIP_DEFLATED) as z:
         for f in sorted(folder.rglob('*')):

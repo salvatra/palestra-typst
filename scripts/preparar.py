@@ -13,7 +13,7 @@ METADATA = '''// Preencha apenas estes dados. Acrescente autores até ao máximo
     (nome: "", numero: ""),
     (nome: "", numero: ""),
   ),
-  data-entrega: [],
+  data: [], // Exemplo: [Abril 2027]; deixe vazio para omitir.
   ano-letivo: "2026/2027",
   indice: true,
 )
@@ -53,7 +53,7 @@ EXAMPLE = r'''// EXEMPLO DIDÁTICO: projeto, autores e resultados fictícios.
   professor-regente: [Docente de exemplo],
   autores: ((nome: "Estudante A (exemplo)", numero: "A000001"),
             (nome: "Estudante B (exemplo)", numero: "A000002")),
-  data-entrega: [15 de janeiro de 2027],
+  data: [Abril 2027],
 )
 
 = Introdução e objetivos
@@ -61,7 +61,7 @@ Este exemplo mostra como descrever um projeto de programação. O sistema propos
 
 Pretende-se registar livros, pesquisar o catálogo por identificador e controlar empréstimos. Um empréstimo só pode ser aceite quando o exemplar está disponível. A aplicação deve conservar os dados após ser encerrada e reaberta.
 
-#block(inset: 10pt, fill: rgb("F5EFEF"))[*Exemplo didático.* O projeto e os resultados apresentados são fictícios; não constituem medições de software executado.]
+#text(size: 9.5pt, fill: rgb("616B73"))[*Exemplo didático.* O projeto e os resultados apresentados são fictícios; não constituem medições de software executado.]
 
 == Critérios de aceitação
 - Encontrar um livro através do seu identificador.
@@ -73,10 +73,16 @@ Pretende-se registar livros, pesquisar o catálogo por identificador e controlar
 == Separação de responsabilidades
 A interface recolhe pedidos e apresenta mensagens. A camada de domínio verifica as regras de empréstimo. A persistência lê e escreve os registos. Esta separação permite alterar a forma de armazenamento sem reescrever a interação com o utilizador.
 
+// Seta vetorial: não depende de uma fonte de símbolos.
+#let seta = box(width: 8mm, height: 4mm)[
+  #place(left + horizon, line(length: 7mm, stroke: 0.7pt))
+  #place(right + horizon, polygon((0pt, 0pt), (-3pt, -2pt), (-3pt, 2pt), fill: black, stroke: none))
+]
+
 #figure(
   grid(columns: (1fr, auto, 1fr, auto, 1fr), gutter: 5pt, align: horizon,
-    block(inset: 10pt, stroke: 0.7pt)[Interface], [→],
-    block(inset: 10pt, stroke: 0.7pt)[Domínio], [→],
+    block(inset: 10pt, stroke: 0.7pt)[Interface], seta,
+    block(inset: 10pt, stroke: 0.7pt)[Domínio], seta,
     block(inset: 10pt, stroke: 0.7pt)[Persistência]),
   caption: [Responsabilidades principais e sentido dos pedidos.],
 ) <arquitetura>
@@ -147,24 +153,26 @@ BIB = '''@online{typst-docs,
 }
 '''
 
-for name in ("classico", "engenharia", "essencial"):
+for name in ("a", "b", "c"):
     p = ROOT / "templates" / name
     (p / "recursos" / "fonts").mkdir(parents=True, exist_ok=True)
     shutil.copy(ROOT / "recursos" / "relatorio.typ", p / "recursos" / "relatorio.typ")
     shutil.copy(ROOT / "recursos" / "logos" / "simbolo-uminho.png", p / "recursos" / "simbolo-uminho.png")
     for font in (ROOT / "recursos" / "fonts").iterdir():
         shutil.copy(font, p / "recursos" / "fonts" / font.name)
-    (p / "estilo.typ").write_text(f'#import "recursos/relatorio.typ" as base\n#let relatorio = base.relatorio.with(estilo: "{name}", logo: "simbolo-uminho.png")\n')
+    (p / "recursos" / "modelos").mkdir(exist_ok=True)
+    shutil.copy(ROOT / "recursos" / "modelos" / f"{name}.typ", p / "recursos" / "modelos" / f"{name}.typ")
+    (p / "estilo.typ").write_text(f'#import "recursos/modelos/{name}.typ": relatorio\n')
     (p / "metadados.typ").write_text(METADATA)
     (p / "main.typ").write_text('#import "estilo.typ": relatorio\n#import "metadados.typ": dados\n#show: relatorio.with(..dados)\n#include "conteudo.typ"\n')
     (p / "conteudo.typ").write_text(STARTER)
     (p / "exemplo.typ").write_text(EXAMPLE)
     (p / "referencias.bib").write_text(BIB)
-    (p / "README.md").write_text(f'''# Modelo {name.title()} · Universidade do Minho
+    (p / "README.md").write_text(f'''# Template {name.upper()} · Universidade do Minho
 
 Modelo da palestra «Typst e Como escrever um relatório». Não é um modelo oficial da Universidade. O enunciado da UC tem prioridade.
 
-1. Edite `metadados.typ`: título, UC, docente, autores e data. O subtítulo é opcional (`none`).
+1. Edite `metadados.typ`: título, UC, docente, autores e data. O subtítulo é opcional (`none`). Em `data`, pode escrever `[Abril 2027]`: aparece apenas esse texto, sem rótulo. `[]` omite a data.
 2. Edite `conteudo.typ`. O ficheiro principal é `main.typ`.
 3. Mantenha 2–6 entradas na lista de autores. Cada entrada tem nome e número.
 4. Consulte `exemplo.typ` para ver um relatório preenchido com dados fictícios.
@@ -183,7 +191,7 @@ typst compile --font-path recursos/fonts main.typ relatorio.pdf
 typst compile --font-path recursos/fonts exemplo.typ exemplo.pdf
 ```
 
-As funções do modelo são locais: não é preciso descarregar pacotes para compilar estes relatórios. `Libertinus Serif` e `DejaVu Sans Mono` fazem parte do compilador; Noto Sans acompanha o ZIP.
+As funções do modelo são locais: não é preciso descarregar pacotes para compilar estes relatórios. Noto Sans e Noto Sans Mono acompanham o ZIP, com a licença OFL. A capa e o interior estão em `recursos/modelos/{name}.typ`; as funcionalidades partilhadas estão em `recursos/relatorio.typ`.
 
 O código do modelo é reutilizável ao abrigo da licença MIT incluída. A identidade gráfica da Universidade do Minho e as fontes têm os seus próprios direitos e licenças.
 ''')

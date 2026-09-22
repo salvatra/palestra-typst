@@ -16,4 +16,4 @@ Consultadas em 22 de setembro de 2026. As recomendações de escrita são orient
 | 21–28 | Exemplo de relatório e exercício originais | Distinguir orientação pedagógica, dados ilustrativos e resultados experimentais reais. |
 | 29–32 | [Touying 0.7.4](https://typst.app/universe/package/touying/) e [Codetastic 0.2.2](https://typst.app/universe/package/codetastic/) | Slides e QR criados em Typst; código da revelação lido da fonte da apresentação. |
 
-Os logótipos foram fornecidos pelo orador e preservados sem redesenho ou alteração de proporções. Não implicam aprovação institucional dos modelos. Noto Sans acompanha o kit com a licença OFL; os restantes tipos de letra utilizados nos relatórios estão incluídos no compilador Typst.
+Os logótipos foram fornecidos pelo orador e preservados sem redesenho ou alteração de proporções. Não implicam aprovação institucional dos modelos. Noto Sans e Noto Sans Mono acompanham os relatórios com a licença OFL.

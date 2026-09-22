@@ -24,6 +24,6 @@ Correção preparada e verificada: `#set text(size: 12pt)`. Este é um exemplo d
 
 ## Ajustar um template
 
-> Uso o modelo Engenharia. Quero que o subtítulo seja opcional e não deixe um espaço vazio quando não é fornecido. Preserva o resto da capa e verifica os casos com 2 e 6 autores. Propõe a alteração mínima à função `relatorio` e explica como testar os dois casos.
+> Uso o Template A. Quero que o subtítulo seja opcional e não deixe um espaço vazio quando não é fornecido. Preserva o resto da capa e verifica os casos com 2 e 6 autores. Propõe a alteração mínima à função `relatorio` e explica como testar os dois casos.
 
 Depois de cada alteração: compilar, abrir o PDF e comparar conteúdo e apresentação. Cumprir as regras da UC relativas ao uso e declaração de IA.

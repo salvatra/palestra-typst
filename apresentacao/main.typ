@@ -177,7 +177,7 @@
     #v(20pt) #text(size: 29pt)[Escrever o conteúdo.]
     #v(20pt) #text(size: 29pt)[Ajustar só o necessário.]
     #v(28pt) #nota[O aspeto muda. A estrutura mantém-se.]
-  ], [#align(center)[#image("../output/previews/engenharia.png", height: 330pt)]])
+  ], [#align(center)[#image("../output/previews/a.png", height: 330pt)]])
 ])
 
 #s(19, [LLMs: ajuda concreta, pedidos concretos], [
@@ -286,10 +286,10 @@
 ])
 
 #s(29, [Três modelos para começar], [
-  #grid(columns: 3, gutter: 32pt,
-    [#image("../output/previews/classico.png", height: 276pt) #v(9pt) #text(size: 21pt, weight: "bold")[Clássico]],
-    [#image("../output/previews/engenharia.png", height: 276pt) #v(9pt) #text(size: 21pt, weight: "bold")[Engenharia]],
-    [#image("../output/previews/essencial.png", height: 276pt) #v(9pt) #text(size: 21pt, weight: "bold")[Essencial]],
+  #grid(columns: (1fr, 1fr, 1fr), gutter: 32pt, align: center,
+    [#image("../output/previews/a.png", height: 276pt) #v(9pt) #text(size: 21pt, weight: "bold")[Template A]],
+    [#image("../output/previews/b.png", height: 276pt) #v(9pt) #text(size: 21pt, weight: "bold")[Template B]],
+    [#image("../output/previews/c.png", height: 276pt) #v(9pt) #text(size: 21pt, weight: "bold")[Template C]],
   )
   #v(12pt) #nota[PT-PT · UMinho · 2026/2027 · Grupos de 2–6 estudantes · Modelos da palestra]
 ])

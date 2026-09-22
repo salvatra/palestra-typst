@@ -13,14 +13,15 @@ Uma palestra para o segundo ano de Engenharia Informática da Universidade do Mi
 
 ## Escolher um template
 
-Todos os modelos estão em PT-PT, com Universidade do Minho, Escola de Engenharia, Engenharia Informática e ano letivo 2026/2027. Título, UC, Professor Regente e data ficam por preencher. O subtítulo é opcional; a lista de autores admite 2–6 estudantes, com nome e número.
+Todos os modelos estão em PT-PT, com Universidade do Minho, Escola de Engenharia, Engenharia Informática e ano letivo 2026/2027. Título, UC, Professor Regente e data ficam por preencher. A data aparece sem rótulo: por exemplo, `data: [Abril 2027]`. Vazia (`[]`), é omitida. O subtítulo é opcional; a lista de autores admite 2–6 estudantes, com nome e número.
 
-| Clássico | Engenharia | Essencial |
+| Template A | Template B | Template C |
 |---|---|---|
-| ![Clássico](output/previews/classico.png) | ![Engenharia](output/previews/engenharia.png) | ![Essencial](output/previews/essencial.png) |
-| Capa simétrica e corpo serifado | Hierarquia contemporânea sem serifa | Composição leve e compacta |
-| [Descarregar ZIP](https://github.com/salvatra/palestra-typst/raw/refs/heads/main/distribuicao/template-classico.zip) | [Descarregar ZIP](https://github.com/salvatra/palestra-typst/raw/refs/heads/main/distribuicao/template-engenharia.zip) | [Descarregar ZIP](https://github.com/salvatra/palestra-typst/raw/refs/heads/main/distribuicao/template-essencial.zip) |
-| [PDF inicial](output/pdf/template-classico.pdf) · [Exemplo](output/pdf/template-classico-exemplo.pdf) | [PDF inicial](output/pdf/template-engenharia.pdf) · [Exemplo](output/pdf/template-engenharia-exemplo.pdf) | [PDF inicial](output/pdf/template-essencial.pdf) · [Exemplo](output/pdf/template-essencial-exemplo.pdf) |
+| ![Template A](output/previews/a.png) | ![Template B](output/previews/b.png) | ![Template C](output/previews/c.png) |
+| Vermelho · composição institucional | Azul-petróleo · composição lateral | Grafite e ocre · composição centrada |
+| ![Interior A](output/previews/a-interior.png) | ![Interior B](output/previews/b-interior.png) | ![Interior C](output/previews/c-interior.png) |
+| [Descarregar ZIP](https://github.com/salvatra/palestra-typst/raw/refs/heads/main/distribuicao/template-a.zip) | [Descarregar ZIP](https://github.com/salvatra/palestra-typst/raw/refs/heads/main/distribuicao/template-b.zip) | [Descarregar ZIP](https://github.com/salvatra/palestra-typst/raw/refs/heads/main/distribuicao/template-c.zip) |
+| [PDF inicial](output/pdf/template-a.pdf) · [Exemplo](output/pdf/template-a-exemplo.pdf) | [PDF inicial](output/pdf/template-b.pdf) · [Exemplo](output/pdf/template-b-exemplo.pdf) | [PDF inicial](output/pdf/template-c.pdf) · [Exemplo](output/pdf/template-c-exemplo.pdf) |
 
 1. Extrair o ZIP escolhido.
 2. Preencher `metadados.typ` e escrever em `conteudo.typ`.
@@ -66,8 +67,8 @@ Para compilar apenas um relatório, a partir da pasta do modelo:
 typst compile --font-path recursos/fonts main.typ relatorio.pdf
 ```
 
-Versões fixadas: Touying 0.7.4, CeTZ 0.5.2 e Codetastic 0.2.2. Noto Sans acompanha o kit; Libertinus Serif, New Computer Modern Math e DejaVu Sans Mono são fornecidas pelo compilador. O ficheiro de estilo local é a fonte de verdade de cada template. `scripts/preparar.py` é uma ferramenta de manutenção que recria os modelos originais e pode sobrescrever personalizações; não é necessário executá-la para compilar.
+Versões fixadas: Touying 0.7.4, CeTZ 0.5.2 e Codetastic 0.2.2. Noto Sans e Noto Sans Mono acompanham os templates. A apresentação e a galeria também usam fontes fornecidas pelo compilador Typst. Cada template tem um desenho próprio em `recursos/modelos`, além das funcionalidades comuns em `recursos/relatorio.typ`. `scripts/preparar.py` é uma ferramenta de manutenção que recria os modelos originais e pode sobrescrever personalizações; não é necessário executá-la para compilar.
 
 ## Licenças
 
-Materiais originais sob [licença MIT](LICENSE), permitindo usar e adaptar os modelos. Os logótipos da Universidade do Minho mantêm os respetivos direitos e estão excluídos dessa licença. Noto Sans é distribuída com a [licença OFL](recursos/fonts/OFL.txt). Os pacotes externos conservam as suas próprias licenças.
+Materiais originais sob [licença MIT](LICENSE), permitindo usar e adaptar os modelos. Os logótipos da Universidade do Minho mantêm os respetivos direitos e estão excluídos dessa licença. Noto Sans e Noto Sans Mono são distribuídas com a [licença OFL](recursos/fonts/OFL.txt). Os pacotes externos conservam as suas próprias licenças.

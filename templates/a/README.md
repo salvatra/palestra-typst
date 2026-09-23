@@ -2,6 +2,8 @@
 
 Modelo da palestra «Typst e Como escrever um relatório». Não é um modelo oficial da Universidade. O enunciado da UC tem prioridade.
 
+A capa identifica a Universidade do Minho, a Escola de Engenharia, o Departamento de Informática e a Licenciatura em Engenharia Informática. O ano letivo (`ano-letivo`, por defeito `2026/2027`) aparece sempre, independentemente da data.
+
 1. Edite `metadados.typ`: título, UC, docente, autores e data. O subtítulo é opcional (`none`). Em `data`, pode escrever `[Abril 2027]`: aparece apenas esse texto, sem rótulo. `[]` omite a data.
 2. Edite `conteudo.typ`. O ficheiro principal é `main.typ`.
 3. Mantenha 2–6 entradas na lista de autores. Cada entrada tem nome e número.

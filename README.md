@@ -13,7 +13,7 @@ Uma palestra para o segundo ano de Engenharia Informática da Universidade do Mi
 
 ## Escolher um template
 
-Todos os modelos estão em PT-PT, com Universidade do Minho, Escola de Engenharia, Engenharia Informática e ano letivo 2026/2027. Título, UC, Professor Regente e data ficam por preencher. A data aparece sem rótulo: por exemplo, `data: [Abril 2027]`. Vazia (`[]`), é omitida. O subtítulo é opcional; a lista de autores admite 2–6 estudantes, com nome e número.
+Todos os modelos estão em PT-PT e identificam a Universidade do Minho, a Escola de Engenharia, o Departamento de Informática e a Licenciatura em Engenharia Informática. O ano letivo **2026/2027** aparece sempre, independentemente da data. Título, UC, Professor Regente e data ficam por preencher. A data aparece sem rótulo: por exemplo, `data: [Abril 2027]`. Vazia (`[]`), é omitida. O subtítulo é opcional; a lista de autores admite 2–6 estudantes, com nome e número.
 
 | Template A | Template B | Template C |
 |---|---|---|

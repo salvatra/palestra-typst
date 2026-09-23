@@ -9,6 +9,6 @@
     (nome: "", numero: ""),
   ),
   data: [], // Exemplo: [Abril 2027]; deixe vazio para omitir.
-  ano-letivo: "2026/2027",
+  ano-letivo: "2026/2027", // Informação independente da data indicada acima.
   indice: true,
 )

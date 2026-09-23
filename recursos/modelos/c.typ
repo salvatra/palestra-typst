@@ -10,7 +10,9 @@
     #v(5mm)
     #text(size: 12pt, weight: "bold")[Universidade do Minho]
     #v(2mm)
-    #text(size: 9pt, fill: discreto)[Escola de Engenharia · Engenharia Informática]
+    #text(size: 9pt, fill: discreto)[Escola de Engenharia · Departamento de Informática]
+    #v(2mm)
+    #text(size: 9pt, fill: discreto)[Licenciatura em Engenharia Informática]
   ]
   #v(1fr)
   #align(center)[
@@ -35,7 +37,7 @@
 
 #let interior(d, body) = {
   set page(paper: "a4", margin: (x: 28mm, top: 27mm, bottom: 26mm),
-    header: align(center, text(size: 8pt, tracking: 0.5pt, fill: discreto)[UNIVERSIDADE DO MINHO · ENGENHARIA INFORMÁTICA]),
+    header: align(center, text(size: 8pt, tracking: 0.5pt, fill: discreto)[UNIVERSIDADE DO MINHO · LICENCIATURA EM ENGENHARIA INFORMÁTICA]),
     footer: context align(center)[#text(size: 9pt, fill: acento, counter(page).display("1"))])
   show heading.where(level: 1): set text(size: 21pt)
   show heading.where(level: 1): it => context block(sticky: true)[

@@ -8,7 +8,8 @@
   #grid(columns: (1fr, auto), gutter: 15mm, align: horizon,
     [#text(size: 16pt, weight: "bold")[Universidade do Minho]
       #v(3mm) Escola de Engenharia
-      #v(2mm) Engenharia Informática], d.logo)
+      #v(2mm) Departamento de Informática
+      #v(2mm) Licenciatura em Engenharia Informática], d.logo)
   #v(9mm)
   #line(length: 100%, stroke: 1.6pt + acento)
   #v(1fr)
@@ -34,7 +35,7 @@
 #let interior(d, body) = {
   set page(paper: "a4", margin: (x: 26mm, top: 26mm, bottom: 26mm),
     header: text(size: 8pt, fill: discreto)[Universidade do Minho #h(1fr) Escola de Engenharia],
-    footer: context [#text(size: 8pt, fill: discreto)[Engenharia Informática · #d.ano-letivo]
+    footer: context [#text(size: 8pt, fill: discreto)[Licenciatura em Engenharia Informática · #d.ano-letivo]
       #h(1fr) #text(size: 9pt, fill: acento, counter(page).display("1"))])
   show heading: set text(fill: acento)
   show heading.where(level: 1): set text(size: 18pt)
